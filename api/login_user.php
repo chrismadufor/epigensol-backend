@@ -12,7 +12,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 
 // SQL to fetch user's hashed password based on email
-$sql = "SELECT password FROM users WHERE email = '$email'";
+$sql = "SELECT * FROM users WHERE email = '$email'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -23,9 +23,11 @@ if ($result->num_rows > 0) {
     // Verify password
     if (verifyPassword($password, $hashedPassword)) {
         // Password is correct
+        $data=$row;
         $response = [
             "response" => 200,
             'status' => true,
+            'data' => $data,
             'message' => "Login successful"
         ];
         echo json_encode($response);
@@ -33,7 +35,7 @@ if ($result->num_rows > 0) {
     } else {
         // Password is incorrect
         $response = [
-            "response" => 201,
+            "response" => 400,
             'status' => false,
             'message' => "Incorrect email or password"
         ];
@@ -42,7 +44,7 @@ if ($result->num_rows > 0) {
 } else {
     // User not found
     $response = [
-        "response" => 201,
+        "response" => 400,
         'status' => false,
         'message' => "Incorrect email or password"
     ];
