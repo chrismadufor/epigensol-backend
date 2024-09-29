@@ -12,7 +12,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 
 // SQL to fetch user's hashed password based on email
-$sql = "SELECT * FROM users WHERE email = '$email'";
+$sql = "SELECT * FROM userList WHERE email = '$email'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

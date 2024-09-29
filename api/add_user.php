@@ -1,7 +1,7 @@
 <?php
 // Enable error reporting for troubleshooting
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
 require('config.php');
 
@@ -22,7 +22,7 @@ $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 $createdTimeStamp = date("Y-m-d H:i:s");
 $updatedTimeStamp = date("Y-m-d H:i:s");
 
-$result = $conn->query("SELECT *  FROM `users` where `email`='$email'");
+$result = $conn->query("SELECT *  FROM `userList` where `email`='$email'");
 // $result = $conn->query("SELECT *  FROM `userList` where `phone`='$phone'");
 $data = array();
 while ($row = $result->fetch_assoc()) {
@@ -33,7 +33,7 @@ if (count($data) > 0) {
 } else {
     $insert = mysqli_query(
         $conn,
-        "INSERT INTO `users`(
+        "INSERT INTO `userList`(
      firstName,
      lastName,
      uId,
