@@ -1,5 +1,9 @@
 <?php
 
+// Enable error reporting for troubleshooting
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 require('config.php');
 
    $uid=$_POST['uid'];
@@ -29,13 +33,16 @@ while($row=$result->fetch_assoc()){
   "INSERT INTO `cart`(
    uid,
       product_id,
-      qty
+      qty,
+      created_time_stamp,
+      updated_time_stamp
       )
       VALUES(
    '$uid',
    '$product_id',
-   '$qty'
-      
+   '$qty',
+    NOW(),
+    NOW()
       )"
             );
             
