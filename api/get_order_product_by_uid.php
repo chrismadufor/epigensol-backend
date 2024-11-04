@@ -33,7 +33,6 @@ echo json_encode($data);
 $conn->close();
 return;
 ?>
-
-
+<!-- 
 FROM Orders
-INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID; -->

@@ -1,5 +1,6 @@
 <?php
 // Set your Stripe secret key here
+$stripeSecretKey = 'sk_test_51OnmRsIdJQv4nWkIf7WjB8vpYzLMt5cYJEoksXwSlsu5lcL3Qp8xSHwe2P8IpqFTQW1wgPy5tX3rM9iJVlMcsXyt00RS7I4n8u';
 
 $amount = $_POST['amount'];
 $data = $_POST['data'];
